@@ -1,0 +1,30 @@
+services:
+  backend:
+    container_name: backend_maven_spring_suite
+    image: maven:3.9.8-sapmachine-21
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend:/app
+    working_dir: /app
+    command: mvn spring-boot:run
+    networks:
+      - app-network
+
+  frontend:
+    container_name: frontend_node_react_suite
+    image: node:18.20.4-slim
+    entrypoint: /bin/sh -c "chmod +x /app/node_modules/@rsbuild/core/compiled/open/xdg-open && yarn install && yarn dev"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+    working_dir: /app
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
