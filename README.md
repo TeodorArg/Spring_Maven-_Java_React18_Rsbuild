@@ -16,10 +16,18 @@
 docker-compose up
 ```
 ### Примечание:
-Строчка entrypoint: /bin/sh -c "chmod +x /app/node_modules/@rsbuild/core/compiled/open/xdg-open && yarn install && yarn dev" в docker-compose добавлена для того, чтобы избежать ошибки при запуске frontend, мы меняем права на исполняемый файл xdg-open от [rsbuild](https://rsbuild.dev/), чтобы избежать ошибки при запуске frontend.
+Строчка entrypoint: /bin/sh -c "chmod +x /app/node_modules/@rsbuild/core/compiled/open/xdg-open && yarn install && yarn dev" в docker-compose добавлена для того, чтобы избежать ошибки при запуске frontend, мы меняем права доступа к файлу xdg-open от [rsbuild](https://rsbuild.dev/), чтобы избежать ошибки при запуске frontend.
 
-### Бэкенд
+## Бэкенд
 После запуска backend, Swagger будет доступeн тут:  [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 
-### Фронтенд
+## Фронтенд
 После запуска, frontend будет доступeн тут: [http://localhost:3000/](http://localhost:3000/)
+
+### Ui & Components
+Для генерации ui используется [ui.shadcn.com](https://ui.shadcn.com/), что позволяет масштабировать проект и ускорить разработку.
+1. Переходим в директорию frontend( cd frontend ), далее:
+2. Пример кода для генерации button
+```bash
+npx shadcn-ui@latest add button
+```
