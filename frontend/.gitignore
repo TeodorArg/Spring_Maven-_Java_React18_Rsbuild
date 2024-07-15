@@ -2,7 +2,7 @@
 .DS_Store
 *.local
 *.log*
-*.lock
+yarn.lock
 
 # Dist
 node_modules
