@@ -1,18 +1,9 @@
 import { useState } from 'react';
 import { useItemsListQuery } from '@entites/index';
 import { IItem } from '@shared/index';
-import { Link } from 'react-router-dom';
-import { MoreHorizontal } from "lucide-react";
-import {
-  Button,
-  DataTable,
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger
-} from "@shared/index";
+import { DataTable} from "@shared/index";
 
-import { ItemDialogDelete } from '@/features/index';
+import { ItemDialogDelete, ItemDropdownMenu } from '@/features/index';
 
 
 export const ItemsList = () => {
@@ -43,33 +34,7 @@ export const ItemsList = () => {
         const action = row.original
   
         return (
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="h-8 w-8 p-0">
-                <span className="sr-only">Open menu</span>
-                <MoreHorizontal className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="bg-topbar">
-              <DropdownMenuItem
-                className='hover:cursor-pointer'
-                onClick={() => navigator.clipboard.writeText(`Item:${action.name}, Description:${action.description}`)}
-                >
-                Copy Item Info
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                  <Link to={`/items/${action.id}`}>View Item Details</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem 
-                className='hover:cursor-pointer'
-                onClick={() => {
-                  setIsAlertDialogOpen(true); // Открываем AlertDialog
-                  setRemovedItem(action); // Сохраняем удаляемый Item
-                }}>
-                  Delete Item
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <ItemDropdownMenu item={action} openAlertDialog={setIsAlertDialogOpen} setRemovedItem={setRemovedItem} /> 
         )
       },
     },
