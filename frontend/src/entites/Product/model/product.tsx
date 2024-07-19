@@ -2,9 +2,9 @@ import { useQuery } from '@tanstack/react-query';
 import { getProduct } from '@/shared/api/product';
 
 // Модифицируем функцию, чтобы она принимала id
-export const itemQuery = (id: string) => {
+export const productQuery = (id: string) => {
   const { isPending, error, data } = useQuery({
-    queryKey: ['itemData', id], // Используем id в качестве части ключа запроса
+    queryKey: ['productData', id], // Используем id в качестве части ключа запроса
     queryFn: () => getProduct(id), // Передаем id в getItem
   });
 

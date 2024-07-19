@@ -1,20 +1,18 @@
-import { itemQuery } from '@entites/index';
+import { useGetItemById } from '@entites/index';
 
 export const ItemDetails = ({ itemID }: { itemID: string }) => {
-  const itemData = itemQuery(itemID);
+  const { data: itemData, isLoading, error } = useGetItemById(itemID);
 
-  if (typeof itemData === 'string') {
-    return <div>{itemData}</div>;
-  }
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>An error occurred: {error.message}</div>;
+  if (!itemData) return <div>No data found</div>;
 
   return (
     <div>
-      {itemData && (
-        <ul>
-          <li>{itemData.name}</li>
-          <li>{itemData.description}</li>
-        </ul>
-      )}
+      <ul>
+        <li>{itemData.name}</li>
+        <li>{itemData.description}</li>
+      </ul>
     </div>
   );
 };

@@ -15,9 +15,18 @@ class ApiInstance {
     });
   }
 
-  async get<T>(endpoint: string, options: AxiosRequestConfig = {}): Promise<T> {
-    const response: AxiosResponse<T> = await this.axios.get(endpoint, options);
+  // Общий метод для выполнения запросов
+  private async request<T>(method: 'get' | 'delete', endpoint: string, options: AxiosRequestConfig = {}): Promise<T> {
+    const response: AxiosResponse<T> = await this.axios[method](endpoint, options);
     return response.data;
+  }
+
+  async get<T>(endpoint: string, options: AxiosRequestConfig = {}): Promise<T> {
+    return this.request<T>('get', endpoint, options);
+  }
+
+  async delete<T>(endpoint: string, options: AxiosRequestConfig = {}): Promise<T> {
+    return this.request<T>('delete', endpoint, options);
   }
 }
 

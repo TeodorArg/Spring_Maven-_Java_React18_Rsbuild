@@ -21,6 +21,7 @@ export interface IMatches {
 interface IBreadcrumbs {
   /** The title of the route. */
   Title?: string;
+  IsMainPage?: boolean;
 }
 
 const ExtractTextFromLink: FC<{ children: ReactNode }> = ({ children }) => {
@@ -40,7 +41,17 @@ const ExtractTextFromLink: FC<{ children: ReactNode }> = ({ children }) => {
 };
 
 export const Breadcrumbs: FC<IBreadcrumbs> = (props) => {
-  const { Title } = props;
+  const { Title, IsMainPage } = props;
+
+  if (IsMainPage) {
+    return (
+      <div className="flex flex-col gap-2 py-4 md:flex-row md:items-center print:hidden">
+        <div className="grow">
+          <h1>{Title}</h1>
+        </div>
+      </div>
+    );
+  }
 
   // @ts-ignore
   const matches: IMatches[] = useMatches();

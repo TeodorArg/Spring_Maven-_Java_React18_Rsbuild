@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import { cn } from '@shared/index';
 
-import style from './table.module.css';
-
 const Table = React.forwardRef<
   HTMLTableElement,
   React.HTMLAttributes<HTMLTableElement>

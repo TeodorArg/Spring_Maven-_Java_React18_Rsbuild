@@ -161,10 +161,6 @@ module.exports = {
       zIndex: {
         drawer: '1050',
       },
-      backgroundImage: {
-        'auth-pattern': "url('src/assets/images/auth-bg.jpg')",
-        'auth-pattern-dark': "url('src/assets/images/auth-bg-dark.jpg')",
-      },
       animation: {
         icons: 'iconsAnimation 50s',
         progress: 'progressAnimation 2s',
@@ -191,12 +187,7 @@ module.exports = {
     },
   },
   plugins: [
-    require('./plugins/buttons.js'),
-    require('./plugins/card.js'),
-    require('./plugins/datatable.js'),
-    require('./plugins/drawer.js'),
     require('./plugins/headings.js'),
-    //apps pages
     require('./plugins/apps.js'),
   ],
 };

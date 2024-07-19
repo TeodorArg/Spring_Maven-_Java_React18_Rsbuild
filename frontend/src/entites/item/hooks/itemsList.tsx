@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { getItems } from '@/shared/api/items';
 
-export const itemsListQuery = () => {
+export const useItemsListQuery = () => {
   const { isPending, error, data } = useQuery({
     queryKey: ['itemsListData'],
     queryFn: getItems,

@@ -1,2 +1,2 @@
-export { itemsListQuery } from './model/itemsList';
-export { itemQuery } from './model/item';
+export { useItemsListQuery } from './hooks/itemsList';
+export { useGetItemById, useDeleteItemById } from './hooks/item';

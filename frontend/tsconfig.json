@@ -19,6 +19,7 @@
       "@shared/*": ["./src/shared/*"],
       "@entites/*": ["./src/entites/*"],
       "@widgets/*": ["./src/widgets/*"],
+      "@features/*": ["./src/features/*"],
       "@assets/*": ["./src/assets/*"]
     }
   },
