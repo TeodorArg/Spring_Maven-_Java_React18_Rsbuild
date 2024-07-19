@@ -15,7 +15,11 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@shared/*": ["./src/shared/*"],
+      "@widgets/*": ["./src/widgets/*"],
+      "@assets/*": ["./src/assets/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "plugins", "rsbuild-template"]
 }
