@@ -14,7 +14,7 @@ services:
   frontend:
     container_name: frontend_node_react_suite
     image: node:18.20.4-slim
-    entrypoint: /bin/sh -c "chmod +x /app/node_modules/@rsbuild/core/compiled/open/xdg-open && yarn install && yarn dev"
+    command: /bin/sh -c "yarn install && yarn dev"
     ports:
       - "3000:3000"
     volumes:

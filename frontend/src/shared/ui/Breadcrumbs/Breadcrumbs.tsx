@@ -60,7 +60,7 @@ export const Breadcrumbs: FC<IBreadcrumbs> = (props) => {
   return (
     <div className="flex flex-col gap-2 py-4 md:flex-row md:items-center print:hidden">
       <div className="grow">
-        <h5 className="text-16">{Title}</h5>
+        <h1>{Title}</h1>
       </div>
       <ul className="breadcrumbs flex items-center gap-2 text-sm font-normal shrink-0">
         {crumbs.map((crumb, index) => (

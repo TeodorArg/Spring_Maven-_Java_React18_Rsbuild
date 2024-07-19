@@ -16,7 +16,7 @@
 docker-compose up
 ```
 ### Примечание:
-Строчка entrypoint: /bin/sh -c "chmod +x /app/node_modules/@rsbuild/core/compiled/open/xdg-open && yarn install && yarn dev" в docker-compose добавлена для того, чтобы избежать ошибки при запуске frontend, мы меняем права доступа к файлу xdg-open от [rsbuild](https://rsbuild.dev/), чтобы избежать ошибки при запуске frontend.
+Нужно подождать пока все зависимости установятся и проект соберется, после этого можно будет перейти по ссылкам ниже.
 
 ## Бэкенд
 После запуска backend, Swagger будет доступeн тут:  [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
