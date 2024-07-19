@@ -1,4 +1,5 @@
-import { Breadcrumbs } from '@/shared/ui/Breadcrumbs/Breadcrumbs';
+import { useParams } from 'react-router-dom';
+import { Breadcrumbs } from '@/shared/index';
 export const ProductDetailPage = () => {
   return (
     <div>

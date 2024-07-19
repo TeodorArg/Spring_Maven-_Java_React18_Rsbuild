@@ -1,9 +1,11 @@
-import { Breadcrumbs } from '@/shared/ui/Breadcrumbs/Breadcrumbs';
+import { Breadcrumbs } from '@/shared/index';
+import { ItemsList } from '@/widgets/index';
+
 export const ItemsPage = () => {
   return (
     <div>
-      <Breadcrumbs Title="ItemsPage" />
-      ItemsPage
+      <Breadcrumbs Title="Страница Товаров (Items Page)" />
+      <ItemsList />
     </div>
   );
 };
