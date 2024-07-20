@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getProducts } from '@/shared/api/products';
+import { getProducts } from '@/shared/index';
 
 export const productsListQuery = () => {
   const { isPending, error, data } = useQuery({

@@ -1,2 +1,2 @@
 export { useItemsListQuery } from './hooks/itemsList';
-export { useGetItemById, useDeleteItemById } from './hooks/item';
+export { useGetItemById, useDeleteItemById, useUpdateItemById } from './hooks/item';

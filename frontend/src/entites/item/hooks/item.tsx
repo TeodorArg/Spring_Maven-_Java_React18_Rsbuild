@@ -1,8 +1,8 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { getItem, deleteItem } from '@/shared/api/item';
+import { getItem, deleteItem, editItem, IItem } from '@/shared/index';
 
 
-// Кастомный хук для получения данных элемента
+// Кастомный хук для получения данных товара по id
 export const useGetItemById = (id: string) => {
   const query = useQuery({
     queryKey: ['itemData', id],
@@ -13,11 +13,23 @@ export const useGetItemById = (id: string) => {
 };
 
 
-// Кастомный хук для удаления элемента
+// Кастомный хук для удаления товара
 export const useDeleteItemById = (itemID: string) => {
-  const queryClient = useQueryClient(); // Перемещаем вызов useQueryClient сюда
+  const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: () => deleteItem(itemID),
+    onSuccess: () => 
+      queryClient.invalidateQueries({ queryKey: ['itemsListData'] })
+  });
+
+  return mutation;
+};
+
+// Кастомный хук для редактирования товара
+export const useUpdateItemById = (itemID: string, itemData: IItem) => {
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: () => editItem(itemID, itemData),
     onSuccess: () => 
       queryClient.invalidateQueries({ queryKey: ['itemsListData'] })
   });

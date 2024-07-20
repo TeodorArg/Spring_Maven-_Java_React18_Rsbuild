@@ -3,15 +3,17 @@ import { useItemsListQuery } from '@entites/index';
 import { IItem } from '@shared/index';
 import { DataTable} from "@shared/index";
 
-import { ItemDialogDelete, ItemDropdownMenu } from '@/features/index';
+import { ItemDialogDelete, ItemDialogEdit, ItemDropdownMenu } from '@/features/index';
 
 
 export const ItemsList = () => {
   const itemsData = useItemsListQuery();
 
   // Состояние для AlertDialog
-  const [isAlertDialogOpen, setIsAlertDialogOpen] = useState(false);
+  const [isAlertDialogDelOpen,  setIsAlertDialogDelOpen] = useState(false);
   const [removedItem, setRemovedItem] = useState({} as IItem);
+  const [isAlertDialogEditOpen, setIsAlertDialogEditOpen] = useState(false);
+  const [editItem, setEditedItem] = useState({} as IItem);
   
   const columns = [
     {
@@ -34,7 +36,7 @@ export const ItemsList = () => {
         const action = row.original
   
         return (
-          <ItemDropdownMenu item={action} openAlertDialog={setIsAlertDialogOpen} setRemovedItem={setRemovedItem} /> 
+          <ItemDropdownMenu item={action} openAlertDialogDel={setIsAlertDialogDelOpen} openAlertDialogEdit={setIsAlertDialogEditOpen} setRemovedItem={setRemovedItem} setEditedItem={setEditedItem}/> 
         )
       },
     },
@@ -47,11 +49,10 @@ export const ItemsList = () => {
 
   // Если данные успешно получены, выводим список Items
   return (
-    <>
-      <ItemDialogDelete showAlert={isAlertDialogOpen} item={removedItem} onOpenChange={setIsAlertDialogOpen}/>
-      <div className="container mx-auto py-10">
-        <DataTable columns={columns} data={itemsData} placeholderText="Ищем по названию/имени..." searchField="name" />
-      </div>
-    </>
+    <div className="container mx-auto py-10">
+      <ItemDialogDelete showAlert={isAlertDialogDelOpen} item={removedItem} onOpenChange={setIsAlertDialogDelOpen}/>
+      <ItemDialogEdit showAlert={isAlertDialogEditOpen} item={editItem} onOpenChange={setIsAlertDialogEditOpen}/>
+      <DataTable columns={columns} data={itemsData} placeholderText="Ищем по названию/имени..." searchField="name" />
+    </div>
   );
 };

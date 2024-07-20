@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Header, Sidebar, Footer } from '@/widgets';
+import { Toaster } from '@/shared/index';
 
 export const Layout = () => {
   return (
@@ -14,6 +15,7 @@ export const Layout = () => {
             </div>
           </div>
         </main>
+        <Toaster />
         <Footer />
       </div>
     </div>

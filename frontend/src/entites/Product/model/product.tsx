@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getProduct } from '@/shared/api/product';
+import { getProduct } from '@/shared/index';
 
 // Модифицируем функцию, чтобы она принимала id
 export const productQuery = (id: string) => {
