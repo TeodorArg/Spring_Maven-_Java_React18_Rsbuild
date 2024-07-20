@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
-import { IItem, IProduct} from '@/shared/index';
+import { IItem, IProduct } from '@/shared/index';
 export const API_URL = '/api';
 
 class ApiInstance {
@@ -20,7 +20,10 @@ class ApiInstance {
     return response.data;
   }
 
-  async getWithProduct<T>(endpoint: string, options: AxiosRequestConfig = {}): Promise<T> {
+  async getWithProduct<T>(
+    endpoint: string,
+    options: AxiosRequestConfig = {},
+  ): Promise<T> {
     const response: AxiosResponse<T> = await this.axios.get(endpoint, options);
     return response.data;
   }

@@ -1,21 +1,26 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { deleteProduct, editProduct, getProduct, IProduct } from '@/shared/index';
+import {
+  deleteProduct,
+  editProduct,
+  getProduct,
+  IProduct,
+} from '@/shared/index';
 
 // Кастомный хук для получения данных товара по id
-export const useGetProductById = (id: string) => {
+export const useGetProductById = (productID: string) => {
   const query = useQuery({
-    queryKey: [`productData-${id}`, id],
-    queryFn: () => getProduct(id),
+    queryKey: [`productData-${productID}`, productID],
+    queryFn: () => getProduct(productID),
   });
 
   return query;
 };
 
 // Кастомный хук для удаления товара
-export const useDeleteProductById = (itemID: string) => {
+export const useDeleteProductById = (productID: string) => {
   const queryClient = useQueryClient();
   const mutation = useMutation({
-    mutationFn: () => deleteProduct(itemID),
+    mutationFn: () => deleteProduct(productID),
     onSuccess: () =>
       queryClient.invalidateQueries({ queryKey: ['productsListData'] }),
   });
@@ -24,10 +29,10 @@ export const useDeleteProductById = (itemID: string) => {
 };
 
 // Кастомный хук для редактирования товара
-export const useUpdateProductById = (itemID: string, itemData: IProduct) => {
+export const useUpdateProductById = (productID: string, itemData: IProduct) => {
   const queryClient = useQueryClient();
   const mutation = useMutation({
-    mutationFn: () => editProduct(itemID, itemData),
+    mutationFn: () => editProduct(productID, itemData),
     onSuccess: () =>
       queryClient.invalidateQueries({ queryKey: ['productsListData'] }),
   });

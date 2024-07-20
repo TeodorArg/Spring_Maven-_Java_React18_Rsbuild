@@ -3,7 +3,7 @@ import { ProductsList } from '@/widgets/ProductsList';
 export const ProductsPage = () => {
   return (
     <div>
-      <Breadcrumbs Title="ProductsPage" />
+      <Breadcrumbs Title="Страница продуктов" />
       <ProductsList />
     </div>
   );

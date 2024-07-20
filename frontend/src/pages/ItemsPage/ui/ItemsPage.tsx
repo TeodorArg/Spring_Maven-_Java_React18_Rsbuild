@@ -4,7 +4,7 @@ import { ItemsList } from '@/widgets/index';
 export const ItemsPage = () => {
   return (
     <div>
-      <Breadcrumbs Title="Страница Товаров (Items Page)" />
+      <Breadcrumbs Title="Страница Товаров" />
       <ItemsList />
     </div>
   );

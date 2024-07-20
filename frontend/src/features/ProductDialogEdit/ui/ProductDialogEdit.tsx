@@ -43,7 +43,10 @@ export const ProductDialogEdit = ({
           </AlertDialogTitle>
           <AlertDialogDescription></AlertDialogDescription>
         </AlertDialogHeader>
-        <ProductEditForm item={item} onClickSaveEdit={handleEdit}></ProductEditForm>
+        <ProductEditForm
+          item={item}
+          onClickSaveEdit={handleEdit}
+        ></ProductEditForm>
       </AlertDialogContent>
     </AlertDialog>
   );

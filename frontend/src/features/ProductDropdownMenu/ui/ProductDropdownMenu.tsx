@@ -27,9 +27,7 @@ export const ProductDropdownMenu: FC<ProductDropdownMenuProps> = ({
   setEditedProduct,
 }) => {
   const handleCopyInfo = useCallback(() => {
-    navigator.clipboard.writeText(
-      `Product:${item.name}, Price:${item.price}`,
-    );
+    navigator.clipboard.writeText(`Product:${item.name}, Price:${item.price}`);
     toast({
       title: 'You submitted the following values:',
       description: (

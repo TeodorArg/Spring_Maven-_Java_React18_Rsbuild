@@ -32,5 +32,5 @@ export const ProductDetails = (itemData: IProduct) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

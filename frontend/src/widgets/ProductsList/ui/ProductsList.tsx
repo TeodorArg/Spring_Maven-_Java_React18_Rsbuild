@@ -56,7 +56,6 @@ export const ProductsList = () => {
     return <div>{productsData}</div>; // Выводим сообщение о загрузке или ошибке
   }
 
-
   return (
     <div className="container mx-auto py-10">
       <ProductDialogDelete

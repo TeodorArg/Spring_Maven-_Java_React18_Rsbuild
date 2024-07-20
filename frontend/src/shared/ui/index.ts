@@ -83,3 +83,12 @@ export {
 
 // Toast
 export * from './Toast';
+
+// Carousel
+export {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from './Carousel/Carousel';

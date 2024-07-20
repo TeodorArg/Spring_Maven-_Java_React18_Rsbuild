@@ -48,7 +48,7 @@ export const Breadcrumbs: FC<IBreadcrumbs> = (props) => {
     return (
       <div className="flex flex-col gap-2 py-4 md:flex-row md:items-center print:hidden">
         <div className="grow">
-          <h1>{Title}</h1>
+          <h1 className='text-center'>{Title}</h1>
         </div>
       </div>
     );

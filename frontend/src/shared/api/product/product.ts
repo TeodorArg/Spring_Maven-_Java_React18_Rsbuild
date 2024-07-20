@@ -12,7 +12,9 @@ export const deleteProduct = (id: string): Promise<IProduct> => {
   return apiInstance.deleteWithProduct(`${BASE_URL}/${id}`);
 };
 
-export const editProduct = (id: string, productData: IProduct): Promise<IProduct> => {
+export const editProduct = (
+  id: string,
+  productData: IProduct,
+): Promise<IProduct> => {
   return apiInstance.putWithProduct(`${BASE_URL}/${id}`, productData);
 };
-
