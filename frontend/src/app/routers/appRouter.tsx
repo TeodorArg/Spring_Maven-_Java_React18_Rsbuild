@@ -69,7 +69,7 @@ export const AppRouter = () => {
         <Route index element={<ItemsPage />} />
         <Route
           path=":itemId"
-          element={<ItemDetailPage/>}
+          element={<ItemDetailPage />}
           handle={{
             crumb: (
               <Link

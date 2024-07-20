@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -34,9 +35,7 @@ export function DataTable<TData, TValue>({
   searchField,
   placeholderText,
 }: DataTableProps<TData, TValue>) {
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
-    [],
-  );
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [pagination, setPagination] = useState<PaginationState>({
     pageIndex: 0,
     pageSize: 10,
@@ -120,11 +119,10 @@ export function DataTable<TData, TValue>({
         </Table>
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
-
-      <div>
-        Showing {table.getRowModel().rows.length.toLocaleString()} of{' '}
-        {table.getRowCount().toLocaleString()} Rows
-      </div>
+        <div>
+          Showing {table.getRowModel().rows.length.toLocaleString()} of{' '}
+          {table.getRowCount().toLocaleString()} Rows
+        </div>
 
         <div className="flex items-center gap-2">
           <span className="flex items-center gap-1">
@@ -151,9 +149,7 @@ export function DataTable<TData, TValue>({
         >
           Next
         </Button>
-
       </div>
-      
     </div>
   );
 }

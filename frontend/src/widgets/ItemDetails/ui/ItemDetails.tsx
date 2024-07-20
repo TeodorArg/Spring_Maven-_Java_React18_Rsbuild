@@ -1,5 +1,4 @@
-export const ItemDetails = (itemData: any ) => {
-
+export const ItemDetails = (itemData: any) => {
   return (
     <div>
       <ul>
