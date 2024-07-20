@@ -12,7 +12,7 @@ import {
 export const ItemsList = () => {
   const itemsData = useItemsListQuery();
 
-  // Состояние для AlertDialog
+  // Состояния для AlertDialog
   const [isAlertDialogDelOpen, setIsAlertDialogDelOpen] = useState(false);
   const [removedItem, setRemovedItem] = useState({} as IItem);
   const [isAlertDialogEditOpen, setIsAlertDialogEditOpen] = useState(false);

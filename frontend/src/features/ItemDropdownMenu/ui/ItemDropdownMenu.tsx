@@ -8,6 +8,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  toast
 } from '@shared/index';
 
 interface ItemDropdownMenuProps {
@@ -29,6 +30,15 @@ export const ItemDropdownMenu: FC<ItemDropdownMenuProps> = ({
     navigator.clipboard.writeText(
       `Item:${item.name}, Description:${item.description}`,
     );
+    toast({
+      title: 'You submitted the following values:',
+      description: (
+        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+          <code className="text-white">{JSON.stringify(`Item:${item.name}, Description:${item.description}`, null, 2)}</code>
+        </pre>
+      ),
+      className: 'bg-sky-500 text-white',
+    });
   }, [item.name, item.description]);
 
   const handleDelete = useCallback(() => {

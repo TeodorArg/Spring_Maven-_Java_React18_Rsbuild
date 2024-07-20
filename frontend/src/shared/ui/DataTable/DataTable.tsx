@@ -1,5 +1,4 @@
-import React from 'react';
-
+import { useState } from 'react';
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -8,6 +7,7 @@ import {
   getFilteredRowModel,
   getPaginationRowModel,
   useReactTable,
+  PaginationState,
 } from '@tanstack/react-table';
 
 import {
@@ -34,19 +34,25 @@ export function DataTable<TData, TValue>({
   searchField,
   placeholderText,
 }: DataTableProps<TData, TValue>) {
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
     [],
   );
+  const [pagination, setPagination] = useState<PaginationState>({
+    pageIndex: 0,
+    pageSize: 10,
+  });
   const table = useReactTable({
     data,
     columns,
     state: {
       columnFilters,
+      pagination,
     },
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     onColumnFiltersChange: setColumnFilters,
     getFilteredRowModel: getFilteredRowModel(),
+    onPaginationChange: setPagination,
   });
 
   return (
@@ -114,6 +120,22 @@ export function DataTable<TData, TValue>({
         </Table>
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
+
+      <div>
+        Showing {table.getRowModel().rows.length.toLocaleString()} of{' '}
+        {table.getRowCount().toLocaleString()} Rows
+      </div>
+
+        <div className="flex items-center gap-2">
+          <span className="flex items-center gap-1">
+            <div>Page</div>
+            <strong>
+              {table.getState().pagination.pageIndex + 1} of{' '}
+              {table.getPageCount().toLocaleString()}
+            </strong>
+          </span>
+        </div>
+
         <Button
           className="btn"
           onClick={() => table.previousPage()}
@@ -121,6 +143,7 @@ export function DataTable<TData, TValue>({
         >
           Previous
         </Button>
+
         <Button
           className="btn"
           onClick={() => table.nextPage()}
@@ -128,7 +151,9 @@ export function DataTable<TData, TValue>({
         >
           Next
         </Button>
+
       </div>
+      
     </div>
   );
 }
