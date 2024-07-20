@@ -6,9 +6,9 @@ import { useGetProductById } from '@entites/index';
 
 export const ProductDetailPage = () => {
   const productId = useParams();
-  const ItemIdString = productId.productId || '';
-  const { data } = useGetProductById(ItemIdString);
-  const [itemData, setProductData] = useState<IProduct | null>(null);
+  const productIDString = productId.productId || '';
+  const { data } = useGetProductById(productIDString);
+  const [productData, setProductData] = useState<IProduct | null>(null);
 
   useEffect(() => {
     if (data) {
@@ -18,8 +18,8 @@ export const ProductDetailPage = () => {
 
   return (
     <div>
-      <Breadcrumbs Title={itemData?.name} />
-      {itemData && <ProductDetails {...itemData} />}
+      <Breadcrumbs Title={productData?.name} />
+      {productData && <ProductDetails {...productData} />}
     </div>
   );
 };
