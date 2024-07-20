@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
-
+import {IItem} from '@/shared/index';
 export const API_URL = '/api';
 
 class ApiInstance {
@@ -15,18 +15,19 @@ class ApiInstance {
     });
   }
 
-  // Общий метод для выполнения запросов
-  private async request<T>(method: 'get' | 'delete', endpoint: string, options: AxiosRequestConfig = {}): Promise<T> {
-    const response: AxiosResponse<T> = await this.axios[method](endpoint, options);
+  async get<T>(endpoint: string, options: AxiosRequestConfig = {}): Promise<T> {
+    const response: AxiosResponse<T> = await this.axios.get(endpoint, options);
     return response.data;
   }
 
-  async get<T>(endpoint: string, options: AxiosRequestConfig = {}): Promise<T> {
-    return this.request<T>('get', endpoint, options);
+  async delete<T>(endpoint: string, options: AxiosRequestConfig = {}): Promise<T> {
+    const response: AxiosResponse<T> = await this.axios.delete(endpoint, options);
+    return response.data;
   }
 
-  async delete<T>(endpoint: string, options: AxiosRequestConfig = {}): Promise<T> {
-    return this.request<T>('delete', endpoint, options);
+  async put<T>(endpoint: string, data: IItem, options: AxiosRequestConfig = {}): Promise<T> {
+    const response: AxiosResponse<T> = await this.axios.put(endpoint, data, options);
+    return response.data;
   }
 }
 
