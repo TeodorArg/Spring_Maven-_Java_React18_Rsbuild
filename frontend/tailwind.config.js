@@ -186,8 +186,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('./plugins/headings.js'),
-    require('./plugins/apps.js'),
-  ],
+  plugins: [require('./plugins/headings.js'), require('./plugins/apps.js')],
 };

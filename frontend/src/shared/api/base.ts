@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
-import {IItem} from '@/shared/index';
+import { IItem } from '@/shared/index';
 export const API_URL = '/api';
 
 class ApiInstance {
@@ -20,13 +20,27 @@ class ApiInstance {
     return response.data;
   }
 
-  async delete<T>(endpoint: string, options: AxiosRequestConfig = {}): Promise<T> {
-    const response: AxiosResponse<T> = await this.axios.delete(endpoint, options);
+  async delete<T>(
+    endpoint: string,
+    options: AxiosRequestConfig = {},
+  ): Promise<T> {
+    const response: AxiosResponse<T> = await this.axios.delete(
+      endpoint,
+      options,
+    );
     return response.data;
   }
 
-  async put<T>(endpoint: string, data: IItem, options: AxiosRequestConfig = {}): Promise<T> {
-    const response: AxiosResponse<T> = await this.axios.put(endpoint, data, options);
+  async put<T>(
+    endpoint: string,
+    data: IItem,
+    options: AxiosRequestConfig = {},
+  ): Promise<T> {
+    const response: AxiosResponse<T> = await this.axios.put(
+      endpoint,
+      data,
+      options,
+    );
     return response.data;
   }
 }

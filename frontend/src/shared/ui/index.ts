@@ -39,7 +39,7 @@ export {
 } from './DropdownMenu/DropdownMenu';
 
 // Alert Dialog
-export { 
+export {
   AlertDialog,
   AlertDialogPortal,
   AlertDialogOverlay,
@@ -50,7 +50,7 @@ export {
   AlertDialogTitle,
   AlertDialogDescription,
   AlertDialogAction,
-  AlertDialogCancel, 
+  AlertDialogCancel,
 } from './AlertDialog/AlertDialog';
 
 // Input
@@ -72,7 +72,14 @@ export {
 } from './Form/Form';
 
 // Card
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from './Card/Card';
+export {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from './Card/Card';
 
 // Toast
 export * from './Toast';

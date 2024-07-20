@@ -1,14 +1,14 @@
 import { FC, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { MoreHorizontal } from "lucide-react";
+import { MoreHorizontal } from 'lucide-react';
 import {
   IItem,
   Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger
-} from "@shared/index";
+  DropdownMenuTrigger,
+} from '@shared/index';
 
 interface ItemDropdownMenuProps {
   item: IItem;
@@ -18,9 +18,17 @@ interface ItemDropdownMenuProps {
   setEditedItem: (item: IItem) => void;
 }
 
-export const ItemDropdownMenu: FC<ItemDropdownMenuProps> = ({ item, openAlertDialogDel, openAlertDialogEdit, setRemovedItem, setEditedItem }) => {
+export const ItemDropdownMenu: FC<ItemDropdownMenuProps> = ({
+  item,
+  openAlertDialogDel,
+  openAlertDialogEdit,
+  setRemovedItem,
+  setEditedItem,
+}) => {
   const handleCopyInfo = useCallback(() => {
-    navigator.clipboard.writeText(`Item:${item.name}, Description:${item.description}`);
+    navigator.clipboard.writeText(
+      `Item:${item.name}, Description:${item.description}`,
+    );
   }, [item.name, item.description]);
 
   const handleDelete = useCallback(() => {
@@ -41,16 +49,22 @@ export const ItemDropdownMenu: FC<ItemDropdownMenuProps> = ({ item, openAlertDia
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="bg-topbar">
-        <DropdownMenuItem className='hover:cursor-pointer' onClick={handleCopyInfo}>
+        <DropdownMenuItem
+          className="hover:cursor-pointer"
+          onClick={handleCopyInfo}
+        >
           Копировать информацию
         </DropdownMenuItem>
-        <DropdownMenuItem className='hover:cursor-pointer' onClick={handleEdit}>
+        <DropdownMenuItem className="hover:cursor-pointer" onClick={handleEdit}>
           Редактировать информацию
         </DropdownMenuItem>
         <DropdownMenuItem>
           <Link to={`/items/${item.id}`}>Просмотр Товара</Link>
         </DropdownMenuItem>
-        <DropdownMenuItem className='hover:cursor-pointer' onClick={handleDelete}>
+        <DropdownMenuItem
+          className="hover:cursor-pointer"
+          onClick={handleDelete}
+        >
           Удалить Товар
         </DropdownMenuItem>
       </DropdownMenuContent>

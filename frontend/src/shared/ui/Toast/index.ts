@@ -9,4 +9,4 @@ export {
 } from './ui/toast';
 
 export { Toaster } from './ui/toaster';
-export {useToast, toast} from './ui/use-toast';
+export { useToast, toast } from './ui/use-toast';
