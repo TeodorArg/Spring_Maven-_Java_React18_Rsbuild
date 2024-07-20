@@ -1,2 +1,2 @@
 export { type IProduct } from './types';
-export { getProduct } from './product';
+export { getProduct, deleteProduct, editProduct } from './product';

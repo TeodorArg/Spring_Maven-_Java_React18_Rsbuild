@@ -1,7 +1,7 @@
-import Image from '../assets/overview-01.png';
-import { IItem } from '@/shared/index';
+import Image from '../assets/img-19.png';
+import { IProduct } from '@/shared/index';
 
-export const ItemDetails = (itemData: IItem) => {
+export const ProductDetails = (itemData: IProduct) => {
   return (
     <div className="row">
       <div className="grid grid-cols-1 gap-x-5 xl:grid-cols-1">
@@ -25,12 +25,12 @@ export const ItemDetails = (itemData: IItem) => {
               <div className="text-slate-500 dark:text-zink-200">
                 <h5 className="text-slate-500">{itemData?.name}</h5>
                 <p className="mb-1">{itemData?.id}</p>
-                <p className="mb-0">{itemData.description}</p>
+                <p className="mb-0">{itemData?.price}</p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

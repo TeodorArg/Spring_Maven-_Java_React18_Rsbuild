@@ -1,6 +1,7 @@
 import React, { FC, ReactNode } from 'react';
 import { Params, useMatches } from 'react-router-dom';
-import { House } from 'lucide-react';
+import { House, ChevronsRight } from 'lucide-react';
+
 import { cn } from '@shared/index';
 
 export interface IMatches {
@@ -64,8 +65,7 @@ export const Breadcrumbs: FC<IBreadcrumbs> = (props) => {
         : match.handle.crumb,
     );
 
-  const liClassName =
-    "group/breadcrumbs__item before:content-['\\ea54'] before:font-remix before:-right-1 before:absolute before:text-[18px] before:-top-[3px] before:text-slate-400 relative flex items-center pr-4";
+  const liClassName = 'group/breadcrumbs__item relative flex items-center';
   const liLastClassName = 'group/breadcrumbs__item text-slate-700';
 
   return (
@@ -81,14 +81,15 @@ export const Breadcrumbs: FC<IBreadcrumbs> = (props) => {
               index === crumbs.length - 1 ? liLastClassName : liClassName,
             )}
           >
-            {index === 0 && (
-              <House className="h-3 transition group-hover/breadcrumbs__item:animate-icons stroke-slate-400 group-hover/breadcrumbs__item:stroke-slate-700" />
-            )}
+            {index === 0 && <House className="h-3 stroke-slate-700" />}
 
             {index === crumbs.length - 1 ? (
-              <ExtractTextFromLink>{crumb}</ExtractTextFromLink>
+              Title
             ) : (
-              crumb
+              <>
+                <span>{crumb}</span>
+                <ChevronsRight className="h-3 stroke-slate-400" />
+              </>
             )}
           </li>
         ))}

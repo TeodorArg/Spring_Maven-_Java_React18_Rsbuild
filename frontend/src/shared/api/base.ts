@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
-import { IItem } from '@/shared/index';
+import { IItem, IProduct} from '@/shared/index';
 export const API_URL = '/api';
 
 class ApiInstance {
@@ -20,7 +20,23 @@ class ApiInstance {
     return response.data;
   }
 
+  async getWithProduct<T>(endpoint: string, options: AxiosRequestConfig = {}): Promise<T> {
+    const response: AxiosResponse<T> = await this.axios.get(endpoint, options);
+    return response.data;
+  }
+
   async delete<T>(
+    endpoint: string,
+    options: AxiosRequestConfig = {},
+  ): Promise<T> {
+    const response: AxiosResponse<T> = await this.axios.delete(
+      endpoint,
+      options,
+    );
+    return response.data;
+  }
+
+  async deleteWithProduct<T>(
     endpoint: string,
     options: AxiosRequestConfig = {},
   ): Promise<T> {
@@ -34,6 +50,19 @@ class ApiInstance {
   async put<T>(
     endpoint: string,
     data: IItem,
+    options: AxiosRequestConfig = {},
+  ): Promise<T> {
+    const response: AxiosResponse<T> = await this.axios.put(
+      endpoint,
+      data,
+      options,
+    );
+    return response.data;
+  }
+
+  async putWithProduct<T>(
+    endpoint: string,
+    data: IProduct, // Изменено на IProduct для второй функции
     options: AxiosRequestConfig = {},
   ): Promise<T> {
     const response: AxiosResponse<T> = await this.axios.put(

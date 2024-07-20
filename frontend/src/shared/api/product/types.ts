@@ -6,5 +6,5 @@ export interface IProduct {
   /** Product title. */
   readonly name: string;
   /** Price in $00.00 format. */
-  readonly price: TPrice;
+  readonly price: number;
 }

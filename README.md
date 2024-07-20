@@ -31,3 +31,4 @@ docker-compose up
 ```bash
 npx shadcn-ui@latest add button
 ```
+3. Иконки из этой библиотеки: [https://lucide.dev/icons/](https://lucide.dev/icons/)
